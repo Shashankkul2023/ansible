@@ -1,0 +1,9 @@
+- name: Test ansible debug module
+  hosts: all
+  tasks:
+    - name: Print system uptime
+      shell: uptime -p
+      register: system_uptime
+    - name: Display uptime of managed nodes
+      debug:
+        msg: "{{ system_uptime }}"

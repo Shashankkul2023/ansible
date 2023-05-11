@@ -1,0 +1,13 @@
+- name: Convert dictionary to INI format string
+  hosts: localhost
+  gather_facts: no
+  vars:
+    my_dict:
+      name: "John Doe"
+      age: 30
+      gender: "Male"
+  tasks:
+    - name: Print INI format string
+      debug:
+        var: my_dict | to_ini
+

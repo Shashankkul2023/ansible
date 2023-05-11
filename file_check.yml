@@ -1,0 +1,11 @@
+- name: Check if file exists
+  hosts: ansible-slave.novalocal
+  tasks:
+    - name: Check file existence
+      command: ls /root/name.txt
+      register: file_check
+
+    - name: Debug file check result
+      debug:
+        var: file_check
+

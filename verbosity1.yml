@@ -1,0 +1,4 @@
+- name: Check verbose output
+  command: ls
+  args:
+    verbosity: 1

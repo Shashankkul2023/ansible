@@ -1,0 +1,16 @@
+- name: Create users
+  hosts: localhost
+  vars:
+    users:
+      - name: John
+        age: 30
+      - name: Jane
+        age: 25
+      - name: Bob
+        age: 35
+  tasks:
+    - name: Print user details
+      debug:
+        msg: "{{ item.name }} is {{ item.age }} years old."
+      loop: "{{ users }}"
+

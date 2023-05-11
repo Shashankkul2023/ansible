@@ -1,0 +1,13 @@
+- name: Convert dictionary to list of key-value pairs
+  hosts: localhost
+  vars:
+    my_dict:
+      name: John
+      age: 30
+      city: New York
+  tasks:
+    - name: Loop over key-value pairs
+      debug:
+        msg: "Key: {{ item.key }}, Value: {{ item.value }}"
+      loop: "{{ my_dict | dict2items }}"
+

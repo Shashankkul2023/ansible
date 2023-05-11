@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars:
+    app_settings:
+      db_host: db.example.com
+      db_port: 5432
+    extra_settings:
+      db_user: myuser
+      db_password: mypassword
+  tasks:
+    - name: Combine app settings and extra settings
+      debug:
+        var: app_settings | combine(extra_settings)
+

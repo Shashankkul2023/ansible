@@ -1,0 +1,10 @@
+- hosts: localhost
+  vars:
+    my_var: "a,b,c"
+  tasks:
+    - name: Convert string to list
+      set_fact:
+        my_list_var: "{{ my_var.split(',') | list }}"
+    - name: Display list variable
+      debug: 
+        var: my_list_var

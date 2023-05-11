@@ -1,0 +1,10 @@
+- name: Check set fact module in ansible
+  hosts: localhost
+  tasks:
+    - shell: uptime
+      register: result
+    - set_fact:
+        my_variable: "{{ result.stdout }}"
+    - debug:
+        var: my_variable
+

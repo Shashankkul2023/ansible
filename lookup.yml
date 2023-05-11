@@ -1,0 +1,9 @@
+- name: Read the content of a file
+  hosts: localhost
+  tasks:
+    - name: Read content of file name.txt
+      set_fact: 
+        file_content: "{{ lookup('file', '/root/name1.txt').split('\n') }}"
+    - debug:
+        msg: "{{ file_content }}"
+

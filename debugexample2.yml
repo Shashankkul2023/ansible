@@ -1,0 +1,9 @@
+- name: Debug module example2
+  hosts: localhost
+  vars:
+    greetings: Hello World!
+    site: Linux Techi
+  tasks:
+  - name: Use debug module to display the variable name
+    debug:
+      msg: "{{ greetings }}, Welcome to {{ site }}"

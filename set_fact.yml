@@ -1,0 +1,11 @@
+- name: Set a fact
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - shell: echo "hello, world"
+      register: result
+    - set_fact:
+        my_variable: "{{ result.stdout }}"
+    - debug:
+        var: my_variable
+

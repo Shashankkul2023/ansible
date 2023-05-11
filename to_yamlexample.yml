@@ -1,0 +1,10 @@
+- name: Convert dictionary to YAML
+  hosts: localhost
+  tasks:
+    - debug:
+        msg: "{{ my_dict | to_yaml }}"
+      vars:
+        my_dict:
+          key1: value1
+          key2: value2
+

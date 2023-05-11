@@ -1,0 +1,19 @@
+- name: Debug this variable
+  hosts: localhost
+  vars:
+    my_dict:
+      name: Shashank
+      age: 30
+    my_list: 
+      - Shashank
+      - Praveen
+      - Kabir
+  tasks:
+    - name: Debug a dictionary
+      debug:
+        var: my_dict
+        #        verbosity: 1
+    - name: Debug a list
+      debug:
+        var: my_list
+        #        verbosity: 1

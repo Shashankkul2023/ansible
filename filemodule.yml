@@ -1,0 +1,8 @@
+- name: Example playbook
+  hosts: localhost
+  tasks:
+    - name: Delete directory
+      file:
+        path: /root/ansible_tasks/test1
+        state: absent
+

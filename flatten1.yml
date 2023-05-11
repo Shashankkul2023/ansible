@@ -1,0 +1,22 @@
+- hosts: localhost
+  vars:
+    results: 
+      - a: foo
+        b: bar
+        c: 
+          - c1: var1
+          - c2: var2
+          - c3: var3
+      - a: foo2
+        b: bar2
+        c: 
+          - c4: var4
+          - c5: var5
+          - c6: var6
+    results_c: "{{ (results| map(attribute='c')|flatten|combine).keys()|list }}"
+  tasks:
+    - debug:
+        var: item
+      loop: "{{ results_c }}"
+    - debug:
+        var: results
