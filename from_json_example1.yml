@@ -1,0 +1,10 @@
+- name: Read JSON file and parse it
+  hosts: localhost
+  tasks:
+    - name: Read JSON file
+      set_fact:
+        servers_json: "{{ lookup('file', 'servers.json') }}"
+    - name: Parse JSON content
+      set_fact:
+        servers: "{{ servers_json |to_json }}"
+
