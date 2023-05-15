@@ -1,0 +1,15 @@
+- name: Select dictionaries with attribute 'status' equal to 'running'
+  hosts: localhost
+  tasks:
+    - name: Play task 1
+      set_fact: 
+        running_dictionaries: "{{ my_list | selectattr('status', 'equalto', 'running') | list }}"
+      vars:
+        my_list: 
+          - { name: 'server1', status: 'running' }
+          - { name: 'server2', status: 'stopped' }
+          - { name: 'server3', status: 'running' }
+    - name: Print value of vars in set_fact
+      debug:
+        var: running_dictionaries
+
