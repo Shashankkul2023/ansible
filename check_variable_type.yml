@@ -1,0 +1,10 @@
+- name: Check the type of given variable
+  hosts: localhost
+  vars:
+    - ceph_pg_num: 18
+  tasks:
+    - name: Ensure that ceph_pg_num is a int value
+      assert:
+        that:
+          - ceph_pg_num |type_debug == 'int'
+        msg: "Value of ceph_pg_num is not integer type"
